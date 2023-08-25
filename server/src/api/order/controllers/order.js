@@ -1,3 +1,5 @@
+// code to save orders in a Strapi content
+
 'use strict';
 // @ts-ignore
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -47,7 +49,6 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 			return { id: session.id };
 		} catch (error) {
 			return { error };
-
 		}
 	}
 }));
