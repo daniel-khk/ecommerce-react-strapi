@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "Item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "details": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "tops",
+        "tshirts",
+        "sweaters",
+        "hoodies",
+        "shirts",
+        "bottoms",
+        "accessories"
+      ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "detailImage": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "shipping": {
+      "type": "richtext"
+    },
+    "count": {
+      "type": "integer",
+      "default": 1,
+      "max": 1,
+      "min": 1,
+      "required": true
+    },
+    "selectedOption": {
+      "type": "string"
+    },
+    "option": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

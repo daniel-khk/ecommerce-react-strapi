@@ -1,0 +1,67 @@
+@use '../../variables' as *;
+
+.container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	overflow: hidden;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	cursor: pointer;
+}
+
+.textBg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0);
+	color: rgba(255, 255, 255, 0);
+	transition: 0.5s ease;
+	&:hover {
+		background: rgba(0, 0, 0, 0.5);
+		color: rgba(255, 255, 255, 1);
+	}
+}
+
+.bannerText {
+	font-size: $font-size-xl;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;	
+}
+
+.bannerImg {
+	display: block;
+	width: 100%;
+	object-fit: cover;
+}
+
+
+@media screen and (max-width : 1024px) {
+	.textBg {
+		background: rgba(0, 0, 0, 0.2);
+		color: rgba(255, 255, 255, 1);
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+	}
+	.wrapper {
+		height: 40vw;
+	}
+}
+
+@media screen and (max-width : 576px) {
+	.bannerText {
+		font-size: $font-size-l;
+	}
+}

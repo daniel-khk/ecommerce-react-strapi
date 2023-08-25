@@ -1,0 +1,61 @@
+@use '../../variables' as *;
+
+.wrapper {
+	padding: 0.625em 0.625em 1.25em;
+	outline: 1px solid transparent;
+	transition: outline 0.8s ease;
+	&:hover {
+		outline: 1px solid $color-main;
+	}
+}
+
+.textWrapper {
+	margin-top: 0.7143em;
+	color: $color-main;
+	text-transform: uppercase;
+}
+
+.itemCardName {
+	font-size: $font-size-s;
+	font-weight: 600;
+	line-height: 1.6;
+	margin: 0 0.125rem;
+}
+
+.itemCardText {
+	font-size: $font-size-s;
+	line-height: 1.6;
+	margin: 0 0.125rem;
+}
+
+
+@media screen and (max-width : 1200px) {
+	.itemCardName {
+		font-size: $font-size-s-s;
+	}
+	.itemCardText {
+		font-size: $font-size-s-s;
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.wrapper {
+		padding: 0;
+		outline: none;
+		transition: none;
+		&:hover {
+			outline: none;
+		}
+	}
+}
+
+@media screen and (max-width : 480px) {
+	.itemCardName {
+		font-size: $font-size-xs;
+	}
+	.itemCardText {
+		font-size: $font-size-xs;
+	}
+}
+
+

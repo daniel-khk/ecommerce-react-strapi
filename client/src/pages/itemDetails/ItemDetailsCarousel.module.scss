@@ -1,0 +1,60 @@
+@use '../../variables' as *;
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 62%;
+	margin-right: 3%;
+	position: relative;
+}
+
+.imageBtn {
+	display: flex;
+	flex-direction: column;
+	margin-right: 3%;
+	gap: 0.625rem;
+	position: sticky;
+	top: 8rem;
+	z-index: 1;
+	button {
+		border: none;
+		background-color: transparent;
+		width: 5rem;
+		height: 6.25rem;
+		background-size: cover;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		border: 1px solid transparent;
+		transition: 0.5s ease;
+		&:hover{
+			border: 1px solid $color-main;
+		}
+	}
+}
+
+.carouselImg {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	width: 100%;
+	img {
+		width: 100%;
+	}		
+}
+
+
+@media screen and (max-width : 1024px) {
+	.imageBtn {
+		display: none;
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.container {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+

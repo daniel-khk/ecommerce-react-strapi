@@ -1,0 +1,73 @@
+@use '../../variables' as *;
+
+.container {
+	width: 100%;
+	text-align: center;
+}
+
+.listTitle {
+	margin: 2.2em 0;
+	font-size: $font-size-xl;
+	font-weight: 600;
+}
+
+.itemList {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	direction: rtl;
+	text-align: left;
+	gap: 1rem;
+	margin-bottom: 2.5rem;
+}
+
+.itemCard {
+	width: calc(100% / 4 - (3/4 * 1rem));
+}
+
+
+@media screen and (max-width : 1200px) {
+	.listTitle {
+		font-size: $font-size-l;
+		margin: 2em;
+	}
+	.itemList {
+		gap: 0.7rem;
+		margin-bottom: 2rem;
+	}
+	.itemCard {
+		width: calc(100% / 4 - (3/4 * 0.7rem));
+	}
+}
+
+@media screen and (max-width : 1024px) {
+	.listTitle {
+		margin: 1.8em;
+	}
+	.itemList {
+		gap: 0.3rem;
+	}
+	.itemCard {
+		width: calc(100% / 4 - (3/4 * 0.3rem));
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.itemList {
+		gap: 3.5rem 1rem;
+	}
+	.itemCard {
+		width: calc(100% / 2 - (1/2 * 1rem));
+	}
+}
+
+@media screen and (max-width : 480px) {
+	.listTitle {
+		font-size: $font-size-l;
+		margin: 1.6em;
+	}
+	.itemList {
+		gap: 2.5rem 1rem;
+	}
+}

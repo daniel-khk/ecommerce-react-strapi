@@ -1,0 +1,37 @@
+@use '../../variables' as *;
+
+.main {
+	padding: $main-padding;	
+}
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding-bottom: 9em;
+}
+
+
+@media screen and (max-width : 1024px) {
+	.main {
+		padding: $mobile-padding-md;
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.main {
+		padding: $mobile-padding-sm;
+	}
+	.container {		
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width : 480px) {
+	.main {
+		padding: $mobile-padding-xs;
+	}
+	.container {
+		padding-bottom: 7.5em;
+	}
+}

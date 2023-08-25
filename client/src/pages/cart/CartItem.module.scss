@@ -1,0 +1,218 @@
+@use '../../variables' as *;
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid $color-main-light;	
+}
+
+.itemWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 50%;
+	padding: 1.875em 0;
+}
+
+.itemImg {
+	width: 5rem;
+}	
+
+.itemInfo {
+	padding-left: 1.5em;
+	h3 {
+		font-size: $font-size-m;
+		font-weight: 600;
+		padding: 0.2em 0;
+		line-height: 1.4em;
+		text-transform: uppercase;
+	}
+	p {
+		font-size: $font-size-s;
+		padding: 0.2em 0;
+		line-height: 1.4em;
+		text-transform: capitalize;
+	}
+}
+
+.itemDesc {
+	display: flex;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+}
+
+.itemPrice {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40%;
+}
+
+.countRemoveWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 60%;
+}
+
+.itemCount {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	span {
+		font-size: $font-size-m;
+		text-align: center;
+		min-width: 2.5em;
+	}
+	button {
+		border: none;
+		background: none;
+		width: 2rem;
+		height: 2rem;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: 0.5s ease;
+		&:hover {
+			opacity: 0.4;
+		}
+	}
+}
+
+.countIcon {
+	transform: scale(0.7);
+	color: $color-main;
+}
+
+.itemRemove {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	button {
+		background: none;
+		border: none;
+		padding: 0.4em 0.8em;
+		cursor: pointer;
+		font-size: $font-size-s;
+		color: $color-main;
+		opacity: 1;
+		transition: 0.5s ease;
+		&:hover {
+			opacity: 0.4;
+		}
+	}
+}
+
+.itemPriceSmall {
+	display: none;
+}
+
+
+@media screen and (max-width : 1024px) {
+	.itemWrapper {
+		padding: 1.5em 0;		
+	}
+	.itemImg {
+		width: 4.5em;
+	}
+	.itemInfo {
+		h3 {
+			font-size: $font-size-s;
+		}
+		p {
+			font-size: $font-size-xs;
+		}
+	}
+	.itemPrice {
+		width: 30%;
+		p {
+			font-size: $font-size-s;
+		}
+	}
+	.countRemoveWrapper {
+		width: 70%;
+	}
+	.itemCount {
+		span {
+			font-size: $font-size-s;
+		}
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.container{
+		justify-content: space-between;
+	}
+	.itemWrapper {
+		padding: 1.2em 0;
+		width: 60%;
+	}
+	.itemDesc {
+		justify-content: space-between;
+		width: 40%;
+	}
+	.itemInfo {
+		padding-left: 1.2em;		
+	}
+	.itemPrice {
+		width: 50%;
+	}
+	.countRemoveWrapper {
+		display: block;
+		width: 50%;
+	}
+	.itemCount {
+		width: 100%;
+	}
+	.itemRemove {
+		width: 100%;
+		button {
+			font-size: $font-size-xs;
+		}
+	}
+}
+
+@media screen and (max-width : 576px) {	
+	.itemWrapper {
+		padding: 1em 0;
+		width: 75%;
+	}
+	.itemInfo {
+		padding-left: 1em;
+		h3 {
+			font-size: $font-size-xs;
+		}
+		p {
+			font-size: $font-size-xs;
+		}
+	}
+	.itemPriceSmall {
+		display: block;
+	}
+	.itemDesc {
+		justify-content: center;
+		width: auto;
+		margin: 0 0.2em 0 0.7em;
+	}
+	.itemPrice {
+		display: none;
+	}
+	.itemCount {
+		padding: 0.3em 0;
+		span {
+			font-size: $font-size-xs;
+		}
+		button {
+			height: 1.5em;
+		}
+	}
+	.countIcon {
+		transform: scale(0.6);
+	}
+}
+

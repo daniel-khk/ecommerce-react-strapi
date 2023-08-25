@@ -1,0 +1,143 @@
+import styles from './HomeCarousel.module.scss';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
+
+function HomeCarousel() {
+	const [carousel, setCarousel] = useState(null);
+	const carouselImages = carousel?.attributes?.image?.data;
+	const [current, setCurrent] = useState(0);
+
+	const [mouseStartPosition, setMouseStartPosition] = useState(0);
+	const [mouseEndPosition, setMouseEndPosition] = useState(0);
+	const [mouseClicked, setMouseClicked] = useState(false);
+	const [dragDistance, setDragDistance] = useState(0);
+
+	const [touchStartPosition, setTouchStartPosition] = useState(0);
+    const [touchEndPosition, setTouchEndPosition] = useState(0);
+    const [touched, setTouched] = useState(false);
+    const [swiped, setSwiped] = useState(false);
+	const [swipeDistance, setSwipeDistance] = useState(0);
+	
+	async function getCarousel() {
+		try {
+			const carousel = await fetch(
+				"http://localhost:1337/api/carousels/1?populate=image",
+				{ method: "GET"}
+			);
+			const carouselJson = await carousel.json();
+
+			if(!carousel.ok) {
+				console.log("getCarousel fetch error");
+				return;
+			}			
+
+			setCarousel(carouselJson.data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	const mouseStartHandler = (e) => {
+		setMouseStartPosition(e.clientX);
+		setMouseEndPosition(e.clientX);
+		setMouseClicked(true);
+	}
+
+	const mouseMoveHandler = (e) => {
+		const frameWidth = document.getElementById('carouselContainer').offsetWidth;
+		if (mouseClicked === true) {
+			setMouseEndPosition(e.clientX);
+			setDragDistance((Math.abs(mouseEndPosition - mouseStartPosition) / frameWidth) * 100);
+			if (dragDistance > 15) {
+				if(mouseEndPosition < mouseStartPosition && current < carouselImages?.length - 2) {
+					setCurrent(current + 1);
+					setMouseStartPosition(e.clientX);				
+				} else if (mouseEndPosition > mouseStartPosition && current > 0) {
+					setCurrent(current - 1);
+					setMouseStartPosition(e.clientX);
+				}
+			}			
+		}
+	}
+
+	const mouseEndHandler = (e) => {
+		setMouseClicked(false);
+	}
+
+	const touchStartHandler = (e) => {
+        setTouchStartPosition(e.targetTouches[0].clientX);
+        setTouchEndPosition(e.targetTouches[0].clientX);
+        setTouched(true);
+    }
+
+	const touchMoveHandler = (e) => {
+		const frameWidth = document.getElementById('carouselContainer').offsetWidth;
+		if(touched === true) {
+			setTouchEndPosition(e.targetTouches[0].clientX);
+			setSwipeDistance((Math.abs(touchEndPosition - touchStartPosition) / frameWidth) * 100);
+			if (swipeDistance > 20) {
+				if(touchEndPosition < touchStartPosition && current < carouselImages?.length - 2) {
+					setCurrent(current + 1);
+					setTouchStartPosition(e.targetTouches[0].clientX);				
+				} else if (touchEndPosition > touchStartPosition && current > 0) {
+					setCurrent(current - 1);
+					setTouchStartPosition(e.targetTouches[0].clientX);
+				}
+			}
+		}
+    }
+
+	const touchEndHandler = (e) => {
+        setTouched(false);
+    }
+
+	useEffect(() => {
+		getCarousel();
+	}, []);
+
+	return (
+		<div className={styles.container} id="carouselContainer"
+			onMouseDown={(e) => mouseStartHandler(e)}
+			onMouseMove={(e) => mouseMoveHandler(e)}
+			onMouseUp={(e) => mouseEndHandler(e)}
+			onTouchStart={(e) => touchStartHandler(e)}
+			onTouchMove={(e) => touchMoveHandler(e)}
+			onTouchEnd={(e) => touchEndHandler(e)}
+			>
+			<Link to="/products/all">
+				<section className={styles.textWrapper}>
+					<h1 className={styles.mainText}>the 2099 f/w collection</h1>
+					<p className={styles.subText}>view all</p>
+				</section>
+			</Link>
+			<div className={styles.images} on>
+				{ carouselImages?.map((a, i) => {			
+					return <img src={`http://localhost:1337${carousel?.attributes?.image?.data[i]?.attributes?.url}`} key={i} style={{ transform: `translateX(-${current}00%)`}} />				
+				})}
+			</div>
+			<div className={styles.carouselBtn}>
+				<button onClick={() => {
+					if(0 < current){
+						setCurrent(current - 1);
+					}
+					else {
+						setCurrent(0);
+					}		
+				}}><ArrowBackIosNewIcon className={styles.arrowIcon} /></button>
+				<button onClick={() => {
+					if(current < carouselImages?.length - 2){
+						setCurrent(current + 1);
+					}
+					else {
+						setCurrent(0);
+					}		
+				}}><ArrowForwardIosIcon className={styles.arrowIcon} /></button>
+			</div>
+		</div>
+	);
+}
+
+export default HomeCarousel;

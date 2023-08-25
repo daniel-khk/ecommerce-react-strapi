@@ -1,0 +1,162 @@
+@use '../../variables' as *;
+
+.main {
+	padding: $main-padding;
+	min-height: 100vh;	
+}
+
+.container {
+	h1 {
+		text-align: center;
+		font-size: $font-size-xl;
+		font-weight: 600;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+	}		
+}
+
+.emptyText {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	border-bottom: 1px solid $color-main-light;
+	h2 {
+		text-align: center;
+		font-size: $font-size-m;
+		font-weight: 400;
+		font-style: italic;
+	}
+}
+
+.emptyBtn {
+	margin-top: 3.125rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	button {
+		font-size: $font-size-s;
+		height: 4em;
+		text-transform: uppercase;
+		border: none;
+		width: 50%;
+		min-width: 25em;
+		background-color: $color-main;
+		color: $color-main-contrast;
+		cursor: pointer;
+		transition: 0.5s ease;
+		&:hover {
+			background-color: $color-main-light;
+			color: $color-main;
+		}
+	}
+}
+
+.calculate {
+	padding: 3.125em 0.625em;
+	text-align: right;
+	span {
+		font-size: $font-size-xl;
+		font-weight: 600;
+	}
+}
+
+.cartBtnWrapper {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1em;	
+}
+
+.cartBtn {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 50%;
+	button {
+		font-size: $font-size-s;
+		height: 4em;
+		text-transform: uppercase;
+		border: none;
+		width: 48%;
+		background-color: $color-main-light;
+		color: $color-main;
+		cursor: pointer;
+		transition: 0.5s ease;
+		&:hover {
+			background-color: $color-main-lighter;
+		}
+	}
+}
+
+.checkout {
+	button {
+		width: 100%;
+		background-color: $color-main;
+		color: $color-main-contrast;
+		&:hover {
+			background-color: darkkhaki;
+		}
+	}
+}
+
+
+@media screen and (max-width : 1024px) {
+	.main {
+		padding: $mobile-padding-md;
+	}	
+	.cartBtn {
+		min-width: 30em;
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.main {
+		padding: $mobile-padding-sm;
+	}	
+	.calculate {
+		padding: 2.7em 0.625em;
+		span {
+			font-size: $font-size-l;
+		}
+	}
+	.cartBtnWrapper{
+		align-items: center;
+	}
+	.cartBtn {
+		min-width: 100%;
+		button {
+			font-size: $font-size-xs;
+		}
+	}
+	.emptyBtn {
+		margin-top: 2.5rem;
+		button {
+			font-size: $font-size-xs;
+		}
+	}
+}
+
+@media screen and (max-width : 576px) {
+	.emptyText {
+		h2 {
+			font-size: $font-size-s;
+		}
+	}
+	.emptyBtn {
+		button {
+			width: 100%;
+			min-width: initial;
+		}
+	}
+}
+
+@media screen and (max-width : 480px) {
+	.main {
+		padding: $mobile-padding-xs;
+	}
+	.calculate {
+		padding: 2.5em 0.625em;
+	}
+}
