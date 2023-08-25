@@ -24,7 +24,7 @@ function HomeCarousel() {
 	async function getCarousel() {
 		try {
 			const carousel = await fetch(
-				"http://localhost:1337/api/carousels/1?populate=image",
+				`${process.env.REACT_APP_SERVER_URL}/api/carousels/1?populate=image`,
 				{ method: "GET"}
 			);
 			const carouselJson = await carousel.json();
@@ -115,7 +115,7 @@ function HomeCarousel() {
 			</Link>
 			<div className={styles.images} on>
 				{ carouselImages?.map((a, i) => {			
-					return <img src={`http://localhost:1337${carousel?.attributes?.image?.data[i]?.attributes?.url}`} key={i} style={{ transform: `translateX(-${current}00%)`}} />				
+					return <img src={`${process.env.REACT_APP_SERVER_URL}${carousel?.attributes?.image?.data[i]?.attributes?.url}`} key={i} style={{ transform: `translateX(-${current}00%)`}} />				
 				})}
 			</div>
 			<div className={styles.carouselBtn}>

@@ -9,7 +9,7 @@ function GetItemsApi() {
 	async function getItems() {
 		try {
 			const items = await fetch(
-				"http://localhost:1337/api/items?populate=*&sort=createdAt:desc",
+				`${process.env.REACT_APP_SERVER_URL}/api/items?populate=*&sort=createdAt:desc`,
 				{ method: "GET" }
 			);
 			const itemsJson = await items.json();

@@ -14,7 +14,7 @@ function ItemCard({ item }) {
 		<div className={styles.container}>
 			<Link to={`/products/detail/${productId}`}>
 				<div className={styles.wrapper}>
-					<img className={styles.itemImg} src={`http://localhost:1337${url}`} width="100%" />
+					<img className={styles.itemImg} src={`${process.env.REACT_APP_SERVER_URL}${url}`} width="100%" />
 					<section className={styles.textWrapper}>
 						<h3 className={styles.itemCardName}>{name}</h3>
 						<p className={styles.itemCardText}>{color}</p>
