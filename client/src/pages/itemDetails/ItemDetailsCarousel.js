@@ -16,12 +16,18 @@ function ItemDetailsCarousel({ item }) {
 				{detailImages?.map((a, i) => {
 					return <button onClick={() => {
 						imageScroll(i);
-					}} key={i} style={{ backgroundImage: `url(${process.env.REACT_APP_SERVER_URL}${item?.attributes?.detailImage?.data[i]?.attributes?.url})` }}></button>
+					}} key={i} style=
+						// {{ backgroundImage: `url(${process.env.REACT_APP_SERVER_URL}${item?.attributes?.detailImage?.data[i]?.attributes?.url})`}}>
+						{{ backgroundImage: `url(${item?.attributes?.detailImage?.data[i]?.attributes?.url})`}}>							
+					</button>
 				})}
 			</div>
 			<div className={styles.carouselImg}>
 				{detailImages?.map((a, i) => {
-					return <img id={`detailImageId${i}`} src={`${process.env.REACT_APP_SERVER_URL}${item?.attributes?.detailImage?.data[i]?.attributes?.url}`} key={i} />
+					return <img id={`detailImageId${i}`} src=
+					// {`${process.env.REACT_APP_SERVER_URL}${item?.attributes?.detailImage?.data[i]?.attributes?.url}`} 
+					{`${item?.attributes?.detailImage?.data[i]?.attributes?.url}`} 
+					key={i} />
 				})}
 			</div>
 		</div>

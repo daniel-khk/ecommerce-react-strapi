@@ -31,6 +31,9 @@ function ItemList() {
 		setCurrentPage(1);
 	}, [category, allItems]);
 
+	console.log(process.env.REACT_APP_SERVER_URL);
+	console.log(allItems);
+
 	return (
 		<main className={styles.main}>
 			<div className={`${styles.container} maxWidth`}>

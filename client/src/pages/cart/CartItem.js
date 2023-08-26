@@ -45,7 +45,8 @@ function CartItem({ item }) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.itemWrapper}>
-				<img className={styles.itemImg} src={`${process.env.REACT_APP_SERVER_URL}${url}`} alt={name} />
+				{/* <img className={styles.itemImg} src={`${process.env.REACT_APP_SERVER_URL}${url}`} alt={name} /> */}
+				<img className={styles.itemImg} src={`${url}`} alt={name} />
 				<section className={styles.itemInfo}>
 					<h3>{name}</h3>
 					<p>{color}, {selectedOption}</p>
