@@ -60,7 +60,7 @@ function CheckoutModal() {
 				</section>
 			</div>
 			<div className={styles.modalBackground} onClick={()=>{dispatch(closeCheckoutModal());}}>
-			</div>				
+			</div>		
 		</div>
 	)
 };

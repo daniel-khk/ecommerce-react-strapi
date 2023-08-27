@@ -13,7 +13,7 @@ function ItemDetails() {
 	const { productId } = useParams();
 	const item = useSelector((state) => state.items.items.find(i => i.attributes.productId === productId));
 	const { isOpen, selectSizeIsOpen } = useSelector((state) => { return state.modal })
-
+	
 	return (
 		<>
 		{isOpen && <AddCartModal />}

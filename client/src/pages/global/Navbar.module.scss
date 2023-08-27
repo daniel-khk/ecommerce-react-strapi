@@ -18,7 +18,7 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	height: 100%;
+	height: 5em;
 	a {
 		color: $color-main;
 	}
@@ -105,6 +105,7 @@
 	}
 	.wrapper {
 		justify-content: center;
+		height: 4.375rem;
 	}
 	.mobileIcon {
 		width: calc(100% / 3);

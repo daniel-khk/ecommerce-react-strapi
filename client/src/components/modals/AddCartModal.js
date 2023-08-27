@@ -5,6 +5,10 @@ import { closeModal } from "../../store/modalSlice";
 
 function AddCartModal() {
 	const dispatch = useDispatch();
+	const overflow = () => {
+		document.body.style.overflow = "hidden";
+	}
+	
 	return (
 		<div className={styles.main}>
 			<div className={styles.container}>
@@ -18,7 +22,8 @@ function AddCartModal() {
 				</section>
 			</div>
 			<div className={styles.modalBackground} onClick={()=>{dispatch(closeModal());}}>
-			</div>		
+			</div>
+			{overflow()}		
 		</div>
 	)
 };

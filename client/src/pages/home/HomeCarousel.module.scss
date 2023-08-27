@@ -87,8 +87,10 @@
 		}
 	}
 	.carouselBtn {
+		align-items: center;
 		button {
 			width: 6rem;
+			height: 6rem;
 			color: rgba(255, 255, 255, 0.7);
 			&:hover {
 				background-color: transparent;
@@ -132,6 +134,7 @@
 	.carouselBtn {
 		button{
 			width: 3.5rem;
+			height: 4.5rem;
 		}
 	}
 	.mainText {
@@ -145,5 +148,4 @@
 	.arrowIcon {
 		transform: scale(2);
 	}
-
 }

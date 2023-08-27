@@ -53,7 +53,7 @@ function HomeCarousel() {
 		if (mouseClicked === true) {
 			setMouseEndPosition(e.clientX);
 			setDragDistance((Math.abs(mouseEndPosition - mouseStartPosition) / frameWidth) * 100);
-			if (dragDistance > 30) {
+			if (dragDistance > 25) {
 				if(mouseEndPosition < mouseStartPosition && current < carouselImages?.length - 2) {
 					setCurrent(current + 1);
 					setMouseStartPosition(e.clientX);				
@@ -80,7 +80,7 @@ function HomeCarousel() {
 		if(touched === true) {
 			setTouchEndPosition(e.targetTouches[0].clientX);
 			setSwipeDistance((Math.abs(touchEndPosition - touchStartPosition) / frameWidth) * 100);
-			if (swipeDistance > 30) {
+			if (swipeDistance > 25) {
 				if(touchEndPosition < touchStartPosition && current < carouselImages?.length - 2) {
 					setCurrent(current + 1);
 					setTouchStartPosition(e.targetTouches[0].clientX);				
