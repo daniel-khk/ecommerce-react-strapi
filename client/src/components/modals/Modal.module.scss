@@ -17,6 +17,7 @@
 }
 .container {
 	position: fixed;
+	min-width: 360px;
 	padding: 2.5em 2.5em;
 	background-color: $color-background;
 }	
@@ -87,6 +88,12 @@
 		button {
 			height: 3.4em;
 		}
+	}
+}
+
+@media screen and (max-width : 576px) {
+	.container {
+		min-width: 320px;
 	}
 }
 

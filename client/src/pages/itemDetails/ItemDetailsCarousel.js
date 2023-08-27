@@ -24,7 +24,7 @@ function ItemDetailsCarousel({ item }) {
 			</div>
 			<div className={styles.carouselImg}>
 				{detailImages?.map((a, i) => {
-					return <img id={`detailImageId${i}`} src=
+					return <img id={`detailImageId${i}`} alt="Item Detail" src=
 					// {`${process.env.REACT_APP_SERVER_URL}${item?.attributes?.detailImage?.data[i]?.attributes?.url}`} 
 					{`${item?.attributes?.detailImage?.data[i]?.attributes?.url}`} 
 					key={i} />

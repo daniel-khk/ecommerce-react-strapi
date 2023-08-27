@@ -14,7 +14,7 @@ function HomeBanners() {
 			<Link to="/products/tops">
 				<div className={styles.wrapper}>
 					<div className={styles.textBg}><h2 className={styles.bannerText}>Tops</h2></div>
-					<img className={styles.bannerImg} src=
+					<img className={styles.bannerImg} alt="Banner_01"src=
 					// {`${process.env.REACT_APP_SERVER_URL}${firstBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`}
 					{`${firstBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`}
 					/>
@@ -23,7 +23,7 @@ function HomeBanners() {
 			<Link to="/products/bottoms">
 				<div className={styles.wrapper}>
 					<div className={styles.textBg}><h2 className={styles.bannerText}>Bottoms</h2></div>
-					<img className={styles.bannerImg} src=
+					<img className={styles.bannerImg} alt="Banner_02" src=
 					// {`${process.env.REACT_APP_SERVER_URL}${secondBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} 
 					{`${secondBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} 
 					/>
@@ -32,7 +32,7 @@ function HomeBanners() {
 			<Link to="/products/accessories">
 				<div className={styles.wrapper}>
 					<div className={styles.textBg}><h2 className={styles.bannerText}>Accessories</h2></div>
-					<img className={styles.bannerImg} src=
+					<img className={styles.bannerImg} alt="Banner_03" src=
 					// {`${process.env.REACT_APP_SERVER_URL}${thirdBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} 
 					{`${thirdBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} 
 					/>

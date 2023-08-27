@@ -1,12 +1,15 @@
 import styles from './HomeCarousel.module.scss';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCarousel } from '../../store/itemsSlice';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 
 function HomeCarousel() {
-	const [carousel, setCarousel] = useState(null);
+	const dispatch = useDispatch();
+	const carousel = useSelector((state) => state.items.carousel);
 	const carouselImages = carousel?.attributes?.image?.data;
 	const [current, setCurrent] = useState(0);
 
@@ -18,9 +21,8 @@ function HomeCarousel() {
 	const [touchStartPosition, setTouchStartPosition] = useState(0);
     const [touchEndPosition, setTouchEndPosition] = useState(0);
     const [touched, setTouched] = useState(false);
-    const [swiped, setSwiped] = useState(false);
-	const [swipeDistance, setSwipeDistance] = useState(0);
-	
+	const [swipeDistance, setSwipeDistance] = useState(0);	
+
 	async function getCarousel() {
 		try {
 			const carousel = await fetch(
@@ -34,7 +36,7 @@ function HomeCarousel() {
 				return;
 			}			
 
-			setCarousel(carouselJson.data);
+			dispatch(setCarousel(carouselJson.data));
 		} catch (error) {
 			console.log(error);
 		}
@@ -51,7 +53,7 @@ function HomeCarousel() {
 		if (mouseClicked === true) {
 			setMouseEndPosition(e.clientX);
 			setDragDistance((Math.abs(mouseEndPosition - mouseStartPosition) / frameWidth) * 100);
-			if (dragDistance > 15) {
+			if (dragDistance > 30) {
 				if(mouseEndPosition < mouseStartPosition && current < carouselImages?.length - 2) {
 					setCurrent(current + 1);
 					setMouseStartPosition(e.clientX);				
@@ -78,7 +80,7 @@ function HomeCarousel() {
 		if(touched === true) {
 			setTouchEndPosition(e.targetTouches[0].clientX);
 			setSwipeDistance((Math.abs(touchEndPosition - touchStartPosition) / frameWidth) * 100);
-			if (swipeDistance > 20) {
+			if (swipeDistance > 30) {
 				if(touchEndPosition < touchStartPosition && current < carouselImages?.length - 2) {
 					setCurrent(current + 1);
 					setTouchStartPosition(e.targetTouches[0].clientX);				
@@ -113,9 +115,9 @@ function HomeCarousel() {
 					<p className={styles.subText}>view all</p>
 				</section>
 			</Link>
-			<div className={styles.images} on>
+			<div className={styles.images}>
 				{ carouselImages?.map((a, i) => {			
-					return <img src=
+					return <img alt="Carousel" src=
 					// {`${process.env.REACT_APP_SERVER_URL}${carousel?.attributes?.image?.data[i]?.attributes?.url}`} 
 					{`${carousel?.attributes?.image?.data[i]?.attributes?.url}`} 
 					key={i} style={{ transform: `translateX(-${current}00%)`}} />				

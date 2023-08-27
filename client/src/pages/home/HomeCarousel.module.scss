@@ -37,7 +37,7 @@
 	font-weight: 600;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	text-decoration: underline 1px;
+	text-decoration: underline;
 	text-underline-offset: 0.3em;
 }
 
@@ -135,11 +135,12 @@
 		}
 	}
 	.mainText {
-		font-size: $font-size-xl;
-		margin-bottom: 0.5em;;
+		font-size: 1.6rem;
+		line-height: 1.5em;
+		margin-bottom: 0.5em;
 	}
 	.subText {
-		font-size: 0.625rem;
+		font-size: 0.6875rem;
 	}
 	.arrowIcon {
 		transform: scale(2);

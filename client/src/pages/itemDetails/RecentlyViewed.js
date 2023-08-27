@@ -19,7 +19,7 @@ function RecentlyViewed({ item }) {
 		viewed.push(item);
 		viewed = viewed.slice(-6);
 		viewed.map((item, i) => {
-			if (unique.length == 0) {
+			if (unique.length === 0) {
 				unique.push(item);
 				final = null;
 			}

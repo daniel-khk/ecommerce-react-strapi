@@ -31,11 +31,7 @@ function CartItem({ item }) {
 				</div>
 				<div className={styles.itemRemove}>
 					<button onClick={() => {
-						{
-							window.confirm("Do you want to remove this item?")
-								&& dispatch(removeItem(item))
-						}
-					}}>Remove</button>
+						dispatch(removeItem(item))}}>Remove</button>
 				</div>
 			</div>
 			</>

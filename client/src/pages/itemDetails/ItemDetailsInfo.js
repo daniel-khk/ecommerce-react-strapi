@@ -2,7 +2,7 @@ import styles from './ItemDetailsInfo.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../store/cartSlice';
-import { openModal } from '../../store/modalSlice';
+import { openModal, openSelectSizeModal } from '../../store/modalSlice';
 import ReactMarkdown from 'react-markdown';
 
 
@@ -14,7 +14,7 @@ function ItemDetailsInfo({ item }) {
 
 	// Toggle expandable text information.
 	const toggle = (i) => {
-		if (selected == i) {
+		if (selected === i) {
 			return setSelected(null);
 		}
 		setSelected(i);
@@ -38,12 +38,10 @@ function ItemDetailsInfo({ item }) {
 					})}
 				</select>
 			</p>
-			<button className={styles.addCartBtn} onClick={() => {
-				{
-					selectedOption === "placeholder"
-						? alert("Please select a size.")
-						: dispatch(addItem([item, selectedOption])) && dispatch(openModal());
-				}
+			<button className={styles.addCartBtn} onClick={() => {				
+				selectedOption === "placeholder"
+					? dispatch(openSelectSizeModal())
+					: dispatch(addItem([item, selectedOption])) && dispatch(openModal());				
 			}}>Add To Cart</button>
 			<span className={styles.borderLine}></span>
 			<section className={styles.expandableText}>

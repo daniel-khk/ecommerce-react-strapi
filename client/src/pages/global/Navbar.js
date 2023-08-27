@@ -1,7 +1,6 @@
 import styles from './Navbar.module.scss';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import NavbarSmall from './NavbarSmall';
 
@@ -15,7 +14,6 @@ function Navbar() {
 		}
 	}
 	const { totalCount } = useSelector((state) => {return state.cart});
-	const [sideMenuOpen, setSideMenuOpen] = useState(false);
 
 	function navbarLarge() {
 		return (
