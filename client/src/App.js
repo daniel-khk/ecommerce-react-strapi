@@ -7,7 +7,7 @@ import Home from './pages/home/Home';
 import Footer from './pages/global/Footer';
 import ItemList from './pages/itemList/ItemList';
 import ItemDetails from './pages/itemDetails/ItemDetails';
-import GetItemsApi from './components/GetItemsApi';
+import { setItems } from './store/itemsSlice';
 import Cart from './pages/cart/Cart';
 import Success from './pages/checkout/Success';
 import Fail from './pages/checkout/Fail';
@@ -19,6 +19,27 @@ function App() {
 	const { cartItems } = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 
+	async function getItems() {
+		try {
+			const items = await fetch(
+				`${process.env.REACT_APP_SERVER_URL}/api/items?populate=*&sort=createdAt:desc`,
+				{ method: "GET" }
+			);
+			const itemsJson = await items.json();
+			if(!items.ok) {
+				console.log("getItems() api fetch error");
+				return;
+			}
+			dispatch(setItems(itemsJson.data));
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	useEffect(() => {
+		getItems();
+	}, []);
+
 	useEffect(() => {
 		// For calculating cart items.
 		dispatch(calculateTotal());
@@ -29,7 +50,6 @@ function App() {
 			<BrowserRouter>
 				<ScrollToTop />
 				<Navbar />
-				<GetItemsApi />
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/products/:category" element={<ItemList />} />
