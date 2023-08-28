@@ -53,7 +53,7 @@ function HomeCarousel() {
 		if (mouseClicked === true) {
 			setMouseEndPosition(e.clientX);
 			setDragDistance((Math.abs(mouseEndPosition - mouseStartPosition) / frameWidth) * 100);
-			if (dragDistance > 25) {
+			if (dragDistance > 20) {
 				if(mouseEndPosition < mouseStartPosition && current < carouselImages?.length - 2) {
 					setCurrent(current + 1);
 					setMouseStartPosition(e.clientX);				
