@@ -1,6 +1,6 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './pages/global/Navbar';
 import Home from './pages/home/Home';
@@ -45,8 +45,11 @@ function App() {
 		dispatch(calculateTotal());
 	}, [cartItems]);
 
+	console.log(item)
+
 	return (
 		<div className="App">
+			
 			<BrowserRouter>
 				<ScrollToTop />
 				<Navbar />
