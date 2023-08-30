@@ -45,8 +45,6 @@ function App() {
 		dispatch(calculateTotal());
 	}, [cartItems]);
 
-	console.log(item)
-
 	return (
 		<div className="App">
 			
