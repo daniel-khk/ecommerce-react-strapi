@@ -1,18 +1,19 @@
-@use '../../variables' as *;
+@use '../../abstracts/scss/' as *;
 
-.main {
-	padding: $main-padding;
-	min-height: 100vh;	
+.cart {
+	max-width: $max-width-main;
+	margin: 0 auto;
+	margin-top: $navbar-height-web;
+	padding: 2.75rem $side-padding-m 5rem;
+	font-size: $font-size-s;
 }
 
-.container {
-	h1 {
-		text-align: center;
-		font-size: $font-size-xl;
-		font-weight: 600;
-		text-transform: uppercase;
-		margin-bottom: 1rem;
-	}		
+.cartTitle {
+	text-align: center;
+	font-size: $font-size-l;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 1rem;
 }
 
 .emptyText {
@@ -20,12 +21,14 @@
 	align-items: center;
 	justify-content: center;
 	height: 50vh;
-	border-bottom: 1px solid $color-main-light;
+	border-bottom: 1px solid $color-light-grey;
+
 	h2 {
 		text-align: center;
-		font-size: $font-size-m;
+		font-size: $font-size-s;
 		font-weight: 400;
 		font-style: italic;
+		margin-bottom: 1rem;
 	}
 }
 
@@ -34,6 +37,7 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+
 	button {
 		font-size: $font-size-s;
 		height: 4em;
@@ -41,13 +45,14 @@
 		border: none;
 		width: 50%;
 		min-width: 25em;
-		background-color: $color-main;
-		color: $color-main-contrast;
+		background-color: $color-text;
+		color: $color-text-contrast;
 		cursor: pointer;
 		transition: 0.5s ease;
+
 		&:hover {
-			background-color: $color-main-light;
-			color: $color-main;
+			background-color: $color-light-grey;
+			color: $color-text;
 		}
 	}
 }
@@ -55,8 +60,9 @@
 .calculate {
 	padding: 3.125em 0.625em;
 	text-align: right;
+
 	span {
-		font-size: $font-size-xl;
+		font-size: $font-size-l;
 		font-weight: 600;
 	}
 }
@@ -66,7 +72,7 @@
 	align-items: flex-end;
 	justify-content: center;
 	flex-direction: column;
-	gap: 1em;	
+	gap: 1em;
 }
 
 .cartBtn {
@@ -74,18 +80,19 @@
 	align-items: flex-start;
 	justify-content: space-between;
 	width: 50%;
+
 	button {
-		font-size: $font-size-s;
 		height: 4em;
 		text-transform: uppercase;
 		border: none;
 		width: 48%;
-		background-color: $color-main-light;
-		color: $color-main;
+		background-color: $color-light-grey;
+		color: $color-text;
 		cursor: pointer;
 		transition: 0.5s ease;
+
 		&:hover {
-			background-color: $color-main-lighter;
+			background-color: $color-lightest-grey;
 		}
 	}
 }
@@ -93,8 +100,9 @@
 .checkout {
 	button {
 		width: 100%;
-		background-color: $color-main;
-		color: $color-main-contrast;
+		background-color: $color-text;
+		color: $color-text-contrast;
+
 		&:hover {
 			background-color: darkkhaki;
 		}
@@ -102,61 +110,54 @@
 }
 
 
-@media screen and (max-width : 1024px) {
-	.main {
-		padding: $mobile-padding-md;
-	}	
+@media screen and (max-width : 1023px) {
+	.cart {
+		margin-top: $navbar-height-mobile;
+		padding: 2rem $side-padding-m 4rem;
+	}
+
 	.cartBtn {
 		min-width: 30em;
 	}
 }
 
 @media screen and (max-width : 767px) {
-	.main {
-		padding: $mobile-padding-sm;
-	}	
-	.calculate {
-		padding: 2.7em 0.625em;
-		span {
-			font-size: $font-size-l;
-		}
+	.cart {
+		padding: 1.75rem $side-padding-s 4rem;
 	}
-	.cartBtnWrapper{
+
+	.calculate {
+		padding: 2.75em 0.625em;
+	}
+
+	.cartBtnWrapper {
 		align-items: center;
 	}
+
 	.cartBtn {
 		min-width: 100%;
-		button {
-			font-size: $font-size-xs;
-		}
 	}
+
 	.emptyBtn {
 		margin-top: 2.5rem;
-		button {
-			font-size: $font-size-xs;
-		}
 	}
 }
 
-@media screen and (max-width : 576px) {
-	.emptyText {
-		h2 {
-			font-size: $font-size-s;
+@media screen and (max-width : 575px) {
+	.calculate {
+		padding: 2.5em 0.625em;
+	}
+
+	.cartBtn {
+		button {
+			font-size: $font-size-s-1;
 		}
 	}
+
 	.emptyBtn {
 		button {
 			width: 100%;
 			min-width: initial;
 		}
-	}
-}
-
-@media screen and (max-width : 480px) {
-	.main {
-		padding: $mobile-padding-xs;
-	}
-	.calculate {
-		padding: 2.5em 0.625em;
 	}
 }

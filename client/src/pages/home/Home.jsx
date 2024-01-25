@@ -2,12 +2,12 @@ import HomeBanners from './HomeBanners';
 import HomeCarousel from './HomeCarousel';
 
 
-function Home() {
+const Home = () => {
 	return (
-		<main className="home-main">
+		<div className="homeContainer">
 			<HomeCarousel />
 			<HomeBanners />
-		</main>
+		</div>
 	);
 }
 

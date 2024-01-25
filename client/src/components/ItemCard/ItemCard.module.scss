@@ -1,61 +1,43 @@
-@use '../../variables' as *;
+@use '../../abstracts/scss/' as *;
 
-.wrapper {
-	padding: 0.625em 0.625em 1.25em;
-	outline: 1px solid transparent;
-	transition: outline 0.8s ease;
+.itemCardWrapper {
+	padding: 0.5rem 0.5rem;
+	border: 1px solid transparent;
+	transition: 0.5s ease;
+
 	&:hover {
-		outline: 1px solid $color-main;
+		border: 1px solid $color-text;
 	}
 }
 
 .textWrapper {
-	margin-top: 0.7143em;
-	color: $color-main;
-	text-transform: uppercase;
+	margin-top: 0.75em;
+	color: $color-text;
+	text-transform: capitalize;
+	font-size: $font-size-s;
+	line-height: 1.6em;
+	padding: 0 0.125rem;
 }
 
 .itemCardName {
-	font-size: $font-size-s;
-	font-weight: 600;
-	line-height: 1.6;
-	margin: 0 0.125rem;
-}
-
-.itemCardText {
-	font-size: $font-size-s;
-	line-height: 1.6;
-	margin: 0 0.125rem;
+	font-weight: 500;
 }
 
 
-@media screen and (max-width : 1200px) {
-	.itemCardName {
-		font-size: $font-size-s-s;
-	}
-	.itemCardText {
-		font-size: $font-size-s-s;
-	}
-}
-
-@media screen and (max-width : 767px) {
-	.wrapper {
+@media screen and (max-width : 1023px) {
+	.itemCardWrapper {
 		padding: 0;
-		outline: none;
+		border: none;
 		transition: none;
+
 		&:hover {
-			outline: none;
+			border: none;
 		}
 	}
 }
 
-@media screen and (max-width : 480px) {
-	.itemCardName {
-		font-size: $font-size-xs;
-	}
-	.itemCardText {
-		font-size: $font-size-xs;
+@media screen and (max-width : 575px) {
+	.textWrapper {
+		font-size: $font-size-s-1;
 	}
 }
-
-

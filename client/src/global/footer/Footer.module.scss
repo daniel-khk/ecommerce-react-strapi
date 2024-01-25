@@ -1,0 +1,101 @@
+@use '../../abstracts/scss/' as *;
+
+.footer {
+	background-color: $color-text;
+	color: $color-text-contrast;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: $min-width-main;
+}
+
+.footerContainer {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	width: 100%;
+	max-width: $max-width-main;
+	padding: 2em $side-padding-m;
+	font-size: $font-size-s;
+}
+
+.footerLeftArea {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+	gap: 5em;
+
+	.menu {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+
+		h3 {
+			font-weight: 500;
+			margin-bottom: 0.75em;
+		}
+
+		span {
+			line-height: 1.75em;
+			opacity: 0.5;
+			transition: 0.5s ease;
+			cursor: not-allowed;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.footerRightArea {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.circle {
+	transform: scale(0.15);
+	vertical-align: middle;
+	margin: 0 0.25em;
+}
+
+
+@media screen and (max-width : 1023px) {
+	.footerContainer {
+		font-size: $font-size-s-1;
+	}
+
+	.footerLeftArea {
+		gap: 4.5em;
+	}
+
+	.circle {
+		margin: 0;
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.footerContainer {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-end;
+		padding: 2em $side-padding-s;
+		gap: 2em;
+	}
+}
+
+@media screen and (max-width : 575px) {
+	.footerRightArea {
+		display: block;
+
+		span {
+			line-height: 1.75em;
+		}
+	}
+
+	.circle.circleToggle {
+		display: none;
+	}
+}

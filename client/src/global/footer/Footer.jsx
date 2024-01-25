@@ -2,11 +2,11 @@ import styles from './Footer.module.scss';
 import CircleIcon from '@mui/icons-material/Circle';
 
 
-function Footer() {
+const Footer = () => {
 	return (
-		<footer className={styles.container}>
-			<div className={`${styles.wrapper} maxWidth`}>
-				<div className={styles.left}>
+		<footer className={styles.footer} >
+			<div className={styles.footerContainer}>
+				<div className={styles.footerLeftArea}>
 					<div className={styles.menu}>
 						<h3>About</h3>
 						<span>About Us</span>
@@ -22,7 +22,7 @@ function Footer() {
 						<span>Help Center</span>
 					</div>
 				</div>
-				<div className={styles.right}>
+				<div className={styles.footerRightArea}>
 					<div>
 						<span>Privacy Policy</span><CircleIcon className={styles.circle} />
 						<span>Terms of Service</span><CircleIcon className={`${styles.circle} ${styles.circleToggle}`} />
@@ -32,8 +32,8 @@ function Footer() {
 						<span>dkhk1208@gmail.com</span>
 					</div>
 				</div>
-			</div>		
-		</footer>
+			</div>
+		</footer >
 	);
 }
 

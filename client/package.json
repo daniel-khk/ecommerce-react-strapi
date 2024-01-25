@@ -22,6 +22,7 @@
     "redux-persist": "^6.0.0",
     "sass": "^1.63.6",
     "stripe": "^12.13.0",
+    "swiper": "^11.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -47,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
   }
 }

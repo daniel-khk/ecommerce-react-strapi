@@ -1,37 +1,39 @@
-@use '../../variables' as *;
+@use '../../abstracts/scss/' as *;
 
-.main {
-	padding: $main-padding;	
+.itemDetails {
+	max-width: $max-width-main;
+	margin: 0 auto;
+	margin-top: $navbar-height-web;
+	padding: 2.75rem $side-padding-m 5rem;
 }
 
-.container {
+.itemDetailsContainer {
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
-	padding-bottom: 9em;
+	padding-bottom: 6rem;
 }
 
 
-@media screen and (max-width : 1024px) {
-	.main {
-		padding: $mobile-padding-md;
+@media screen and (max-width : 1023px) {
+	.itemDetails {
+		margin-top: $navbar-height-mobile;
+		padding: 2rem $side-padding-m 4rem;
 	}
 }
 
 @media screen and (max-width : 767px) {
-	.main {
-		padding: $mobile-padding-sm;
+	.itemDetails {
+		padding: 1.75rem $side-padding-s 4rem;
 	}
-	.container {		
+
+	.itemDetailsContainer {
 		flex-direction: column;
 	}
 }
 
-@media screen and (max-width : 480px) {
-	.main {
-		padding: $mobile-padding-xs;
-	}
-	.container {
-		padding-bottom: 7.5em;
+@media screen and (max-width : 575px) {
+	.itemDetails {
+		padding: 1.75rem $side-padding-s 3.25rem;
 	}
 }

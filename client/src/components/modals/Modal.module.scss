@@ -1,74 +1,89 @@
-@use '../../variables' as *;
+@use '../../abstracts/scss/' as *;
 
-.main {	
+.modalMain {
 	height: 100%;
 	width: 100%;
 	position: fixed;
-	z-index: 901;
+	top: 0;
+	left: 0;
+	z-index: 100;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-width: 320px;
 }
+
 .modalBackground {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 }
-.container {
+
+.modalBox {
 	position: fixed;
 	min-width: 360px;
 	padding: 2.5em 2.5em;
-	background-color: $color-background;
-}	
+	background-color: $color-bg;
+	border-radius: 4px;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 100%;
+
 	h3 {
-		font-size: $font-size-m;
+		font-size: $font-size-s;
 		font-weight: 400;
 		margin-bottom: 1.5em;
 	}
+
 	p {
 		font-size: $font-size-s;
 		line-height: 1.5em;
-		margin-bottom: 1.5rem;		
+		margin-bottom: 1.5rem;
 	}
 }
+
 .checkoutTitle {
 	font-weight: 600;
 }
+
 .btnWrapper {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	gap: 3%;
+
 	button {
 		font-size: $font-size-s;
 		font-weight: 400;
 		text-transform: uppercase;
 		width: 100%;
-		height: 4em;
+		height: 3.5em;
 		border: none;
 		cursor: pointer;
 	}
 }
+
 .leftBtn {
-	background-color: $color-main-light;
-	color: $color-main;
+	background-color: $color-light-grey;
+	color: $color-text;
 	transition: 0.5s ease;
+
 	&:hover {
-		background-color: $color-main-lighter;
-		color: $color-main;
+		background-color: $color-lightest-grey;
+		color: $color-text;
 	}
 }
+
 .rightBtn {
-	background-color: $color-main;
-	color: $color-main-contrast;
+	background-color: $color-text;
+	color: $color-text-contrast;
 	transition: 0.5s ease;
+
 	&:hover {
 		opacity: 0.7;
 	}
@@ -77,29 +92,26 @@
 
 @media screen and (max-width : 767px) {
 	.wrapper {
-		h3 {
-			font-size: $font-size-s;
-		}
 		p {
-			font-size: $font-size-xs;	
+			font-size: $font-size-s-1;
 		}
 	}
+
 	.btnWrapper {
 		button {
-			height: 3.4em;
+			height: 3.25em;
 		}
 	}
 }
 
 @media screen and (max-width : 576px) {
-	.container {
+	.modalBox {
 		min-width: 320px;
 	}
 }
 
 @media screen and (max-width : 480px) {
-	.container {
+	.modalBox {
 		padding: 2em 2em;
 	}
 }
-

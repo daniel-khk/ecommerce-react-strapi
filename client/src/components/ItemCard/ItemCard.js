@@ -2,7 +2,7 @@ import styles from './ItemCard.module.scss';
 import { Link } from 'react-router-dom';
 
 
-function ItemCard({ item }) {
+const ItemCard = ({ item }) => {
 	const { name, color, price, image, productId } = item.attributes;
 	const {
 		data: {
@@ -11,19 +11,19 @@ function ItemCard({ item }) {
 	} = image;
 
 	return (
-		<div className={styles.container}>
+		<section className={styles.itemCard}>
 			<Link to={`/products/detail/${productId}`}>
-				<div className={styles.wrapper}>
+				<div className={styles.itemCardWrapper}>
 					{/* <img className={styles.itemImg} src={`${process.env.REACT_APP_SERVER_URL}${url}`} width="100%" /> */}
-					<img className={styles.itemImg} src={`${url}`} width="100%" alt="Item" />
-					<section className={styles.textWrapper}>
+					<img className={styles.itemImg} src={`${url}`} width="100%" alt="Item" loading='lazy' />
+					<div className={styles.textWrapper}>
 						<h3 className={styles.itemCardName}>{name}</h3>
-						<p className={styles.itemCardText}>{color}</p>
-						<p className={styles.itemCardText}>${price.toFixed(2)}</p>
-					</section>
+						<p className={styles.itemCardInfo}>{color}</p>
+						<p className={styles.itemCardInfo}>${price.toFixed(2)}</p>
+					</div>
 				</div>
 			</Link>
-		</div>
+		</section>
 	);
 }
 

@@ -3,23 +3,23 @@ import { useDispatch } from "react-redux";
 import { closeSelectSizeModal } from "../../store/modalSlice";
 
 
-function SelectSizeModal() {
+const SelectSizeModal = () => {
 	const dispatch = useDispatch();
 	return (
-		<div className={styles.main}>
-			<div className={styles.container}>
-				<section className={styles.wrapper}>
+		<section className={styles.modalMain}>
+			<section className={styles.modalBox}>
+				<div className={styles.wrapper}>
 					<h3>Please select a size.</h3>
 					<div className={styles.btnWrapper}>
-						<button className={styles.rightBtn} onClick={()=>{
+						<button className={styles.rightBtn} onClick={() => {
 							dispatch(closeSelectSizeModal());
 						}}>ok</button>
 					</div>
-				</section>
+				</div>
+			</section>
+			<div className={styles.modalBackground} onClick={() => { dispatch(closeSelectSizeModal()); }}>
 			</div>
-			<div className={styles.modalBackground} onClick={()=>{dispatch(closeSelectSizeModal());}}>
-			</div>		
-		</div>
+		</section>
 	)
 }
 

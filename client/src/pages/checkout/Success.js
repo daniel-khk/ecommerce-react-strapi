@@ -5,7 +5,7 @@ import { clearCart } from "../../store/cartSlice";
 import { useEffect } from "react";
 
 
-function Success() {
+const Success = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -13,15 +13,15 @@ function Success() {
 	}, []);
 
 	return (
-		<main className={styles.main}>
+		<section className={styles.main}>
 			<div className={styles.container}>
 				<h3>Thank you for your purchase.</h3>
-				<p>Payment has been successfully processed.<br/>Your order will be prepared for shipment soon.</p>
+				<p>Payment has been successfully processed.<br />Your order will be prepared for shipment soon.</p>
 				<Link to={`/`}>
 					<button>Back to Home</button>
 				</Link>
-			</div>		
-		</main>
+			</div>
+		</section>
 	)
 }
 

@@ -1,0 +1,161 @@
+@use '../../abstracts/scss/' as *;
+
+.navbarMobile {
+	position: fixed;
+	width: 100%;
+	min-width: $min-width-main;
+	height: $navbar-height-mobile;
+	padding: 0 $side-padding-m;
+	margin: 0 auto;
+	z-index: 99;
+	font-size: $font-size-s;
+}
+
+.navbarMobileMenu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+
+.navLogo {
+	width: 1.4em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 2.25em 0 0;
+}
+
+.svgLogo {
+	width: 100%;
+	margin-bottom: 0.35em;
+}
+
+.navbarRightArea {
+	display: flex;
+	align-items: center;
+	gap: 2em;
+	height: 100%;
+}
+
+.cartIcon {
+	position: relative;
+	cursor: pointer;
+	margin-bottom: 0.2em;
+
+
+	.cartIconNum {
+		position: absolute;
+		top: 35%;
+		left: 90%;
+		transform: translate(0, -50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: $font-size-xs;
+		font-weight: 500;
+		color: $color-text;
+	}
+}
+
+.slideMenu {
+	position: fixed;
+	top: -100vh;
+	right: 0;
+	height: 100vh;
+	width: 100%;
+	min-width: $min-width-main;
+	background-color: $color-bg;
+	padding: $navbar-height-mobile $side-padding-m;
+	transition: 0.4s ease;
+	color: $color-text;
+	font-size: $font-size-4xl;
+	text-transform: capitalize;
+	opacity: 0.5;
+	overflow-y: auto;
+
+	&.slide {
+		top: 0;
+		opacity: 1;
+	}
+
+	.slideMenuIconBox {
+		height: $navbar-height-mobile;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 1.25em;
+	}
+
+	li {
+		padding: 0 0.25em;
+		cursor: pointer;
+
+		a {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&.active {
+			color: rgba(0, 0, 0, 0.3);
+
+			span {
+				position: relative;
+				padding: 0.2em 0;
+
+				&:before {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 1.75px;
+					top: 50%;
+					left: 0;
+					background-color: rgba(0, 0, 0, 0.3);
+				}
+			}
+		}
+	}
+}
+
+.slideMenuIcon {
+	cursor: pointer;
+	z-index: 99;
+}
+
+
+@media screen and (min-width : 1024px) {
+	.navbarMobile {
+		display: none;
+	}
+}
+
+@media screen and (max-width : 1023px) {
+	.navbarMobile {
+		display: initial;
+	}
+}
+
+@media screen and (max-width : 767px) {
+	.navbarMobile {
+		padding: 0 $side-padding-s;
+	}
+
+	.slideMenu {
+		padding: $navbar-height-mobile $side-padding-s;
+		font-size: $font-size-3xl;
+	}
+}
+
+@media screen and (max-width : 575px) {
+	.slideMenu {
+		font-size: $font-size-2xl;
+	}
+}

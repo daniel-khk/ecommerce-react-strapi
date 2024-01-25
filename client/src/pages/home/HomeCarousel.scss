@@ -1,0 +1,123 @@
+@use '../../abstracts/scss/' as *;
+
+.homeCarousel {
+	width: 100%;
+	height: 100vh;
+	min-width: $min-width-main;
+	overflow: hidden;
+	background-color: $color-image-background;
+}
+
+.carouselTitle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 2;
+	color: rgba(255, 255, 255, 1);
+	cursor: pointer;
+	transition: 0.5s ease;
+	padding: 0.25em;
+
+	&:hover {
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	h2 {
+		font-size: 2.25rem;
+		line-height: 1.4em;
+		margin-bottom: 0.2em;
+		text-shadow: 0 0 1em $color-text;
+	}
+
+	p {
+		font-size: $font-size-s;
+		text-transform: capitalize;
+		text-decoration: underline;
+		text-underline-offset: 0.25em;
+		text-shadow: 0 0 1em $color-text;
+	}
+}
+
+.mySwiper {
+	width: 100%;
+	height: 100%;
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		margin: 0 1.25rem;
+		width: 3rem;
+		height: 3rem;
+		color: #ffffff;
+		background: rgba(0, 0, 0, 0.2);
+		border-radius: 9999px;
+		transform: translateY(-50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: 0.4s ease;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.4);
+		}
+
+		&:after {
+			font-size: 1.5rem;
+		}
+	}
+
+	.swiper-pagination-bullet {
+		width: 2.5rem;
+		height: 0.2rem;
+		border-radius: 0;
+		background: #ffffff;
+		opacity: 0.5;
+		margin: 0 1rem;
+		transition: 0.4s ease;
+	}
+
+	.swiper-pagination-bullet-active {
+		background: $color-text;
+		opacity: 0.5;
+	}
+
+	.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+		margin: 0.75rem 0.35rem;
+	}
+}
+
+.homeCarouselImage {
+	display: block;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+
+@media screen and (max-width : 767px) {
+	.carouselTitle {
+		h2 {
+			font-size: $font-size-4xl;
+		}
+
+		p {
+			font-size: $font-size-s-1;
+		}
+	}
+
+	.mySwiper {
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			margin: 0 0.25rem;
+			width: 2.5rem;
+			height: 2.5rem;
+
+			&:after {
+				font-size: 1.25rem;
+			}
+		}
+	}
+}

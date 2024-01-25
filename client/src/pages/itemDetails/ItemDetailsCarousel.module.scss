@@ -1,6 +1,6 @@
-@use '../../variables' as *;
+@use '../../abstracts/scss/' as *;
 
-.container {
+.itemDetailsCarousel {
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
@@ -9,14 +9,15 @@
 	position: relative;
 }
 
-.imageBtn {
+.detailImageBtn {
 	display: flex;
 	flex-direction: column;
 	margin-right: 3%;
 	gap: 0.625rem;
 	position: sticky;
-	top: 8rem;
+	top: 7.125rem;
 	z-index: 1;
+
 	button {
 		border: none;
 		background-color: transparent;
@@ -27,34 +28,34 @@
 		cursor: pointer;
 		border: 1px solid transparent;
 		transition: 0.5s ease;
-		&:hover{
-			border: 1px solid $color-main;
+
+		&:hover {
+			border: 1px solid $color-text;
 		}
 	}
 }
 
-.carouselImg {
+.carouselImage {
 	display: flex;
 	flex-direction: column;
 	gap: 1.25rem;
 	width: 100%;
+
 	img {
 		width: 100%;
-	}		
+	}
 }
 
 
-@media screen and (max-width : 1024px) {
-	.imageBtn {
+@media screen and (max-width : 1023px) {
+	.detailImageBtn {
 		display: none;
 	}
 }
 
 @media screen and (max-width : 767px) {
-	.container {
+	.itemDetailsCarousel {
 		width: 100%;
 		margin: 0;
 	}
 }
-
-

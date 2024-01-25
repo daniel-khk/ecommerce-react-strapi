@@ -1,13 +1,14 @@
-@use '../../variables' as *;
+@use '../../abstracts/scss/' as *;
 
-.container {
+.recentlyViewed {
 	width: 100%;
 	text-align: center;
+	color: $color-text;
 }
 
 .listTitle {
-	margin: 2.2em 0;
-	font-size: $font-size-xl;
+	margin-bottom: 2rem;
+	font-size: $font-size-l;
 	font-weight: 600;
 }
 
@@ -18,56 +19,40 @@
 	flex-wrap: wrap;
 	direction: rtl;
 	text-align: left;
-	gap: 1rem;
-	margin-bottom: 2.5rem;
+	gap: 0 0.75rem;
 }
 
 .itemCard {
-	width: calc(100% / 4 - (3/4 * 1rem));
+	width: calc(100% / 4 - (3/4 * 0.75rem));
 }
 
 
-@media screen and (max-width : 1200px) {
-	.listTitle {
-		font-size: $font-size-l;
-		margin: 2em;
-	}
+@media screen and (max-width : 1023px) {
 	.itemList {
-		gap: 0.7rem;
-		margin-bottom: 2rem;
+		gap: 0 1rem;
 	}
-	.itemCard {
-		width: calc(100% / 4 - (3/4 * 0.7rem));
-	}
-}
 
-@media screen and (max-width : 1024px) {
-	.listTitle {
-		margin: 1.8em;
-	}
-	.itemList {
-		gap: 0.3rem;
-	}
 	.itemCard {
-		width: calc(100% / 4 - (3/4 * 0.3rem));
+		width: calc(100% / 4 - (3/4 * 1rem));
 	}
 }
 
 @media screen and (max-width : 767px) {
 	.itemList {
-		gap: 3.5rem 1rem;
+		gap: 2rem 1rem;
 	}
+
 	.itemCard {
 		width: calc(100% / 2 - (1/2 * 1rem));
 	}
 }
 
-@media screen and (max-width : 480px) {
+@media screen and (max-width : 575px) {
 	.listTitle {
-		font-size: $font-size-l;
-		margin: 1.6em;
+		margin-bottom: 1.75rem;
 	}
+
 	.itemList {
-		gap: 2.5rem 1rem;
+		gap: 1.75em 1rem;
 	}
 }

@@ -1,0 +1,8 @@
+@mixin check-border {
+	border: 1px solid red;
+}
+
+@mixin container-size {
+	max-width: $max-width-main;
+	padding: 0 $side-padding-m;
+}

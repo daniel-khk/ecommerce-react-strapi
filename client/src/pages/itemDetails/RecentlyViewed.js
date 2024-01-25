@@ -3,7 +3,7 @@ import ItemCard from '../../components/ItemCard/ItemCard';
 import { useEffect, useState } from 'react';
 
 
-function RecentlyViewed({ item }) {
+const RecentlyViewed = ({ item }) => {
 	// Component that shows Recently Viewed list using local storage.
 	// The current page item will not be shown on the list but will be reserved and appear at the front of the list when viewing the next item.
 	// If an item is viewed and the equivalent item is already on the list,
@@ -56,7 +56,7 @@ function RecentlyViewed({ item }) {
 	}, [item]);
 
 	return (
-		<div className={styles.container}>
+		<div className={styles.recentlyViewed}>
 			{
 				viewedList !== null
 					? <>

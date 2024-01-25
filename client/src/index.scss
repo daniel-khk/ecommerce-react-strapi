@@ -1,20 +1,26 @@
-@use './variables' as *;
+@use './abstracts/scss/' as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 * {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
+html,
 body {
+	font-family: $font-jost;
+	font-weight: 400;
+	background-color: $color-bg;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
 	margin: 0;
 	padding: 0;
-	font-family: $font-family;
-	font-weight: 400;
-	background-color: $color-background;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;	
-}
-
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+	min-width: $min-width-main;
 }
