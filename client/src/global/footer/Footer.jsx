@@ -6,7 +6,9 @@ const Footer = () => {
 	return (
 		<footer className={styles.footer} >
 			<div className={styles.footerContainer}>
+				{/* Left area of the footer */}
 				<div className={styles.footerLeftArea}>
+					{/* About section */}
 					<div className={styles.menu}>
 						<h3>About</h3>
 						<span>About Us</span>
@@ -14,6 +16,7 @@ const Footer = () => {
 						<span>News</span>
 						<span>Careers</span>
 					</div>
+					{/* Support section */}
 					<div className={styles.menu}>
 						<h3>Support</h3>
 						<span>Shipping</span>
@@ -22,6 +25,7 @@ const Footer = () => {
 						<span>Help Center</span>
 					</div>
 				</div>
+				{/* Right area of the footer */}
 				<div className={styles.footerRightArea}>
 					<div>
 						<span>Privacy Policy</span><CircleIcon className={styles.circle} />

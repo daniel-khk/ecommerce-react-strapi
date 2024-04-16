@@ -9,8 +9,9 @@ import SelectSizeModal from '../../components/modals/SelectSizeModal';
 
 
 const ItemDetails = () => {
-	// Getting the item that matches productId from redux data.
+	// Extracting productId from the URL parameters.
 	const { productId } = useParams();
+	// Fetching the specific item from the Redux store based on productId.
 	const item = useSelector((state) => state.items.items.find(i => i.attributes.productId === productId));
 	const { isOpen, selectSizeIsOpen } = useSelector((state) => { return state.modal })
 
@@ -18,12 +19,16 @@ const ItemDetails = () => {
 		<>
 			{isOpen && <AddCartModal />}
 			{selectSizeIsOpen && <SelectSizeModal />}
+
+			{/* Main item details section */}
 			<section className={styles.itemDetails}>
 				<section className={styles.itemDetailsContainer}>
+					{/* Carousel and information sections for the product */}
 					<ItemDetailsCarousel item={item} />
 					<ItemDetailsInfo item={item} />
 				</section>
 				<section className={styles.recentlyViewedContainer}>
+					{/* Section for displaying recently viewed items */}
 					<RecentlyViewed item={item} />
 				</section>
 			</section>

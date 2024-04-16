@@ -28,7 +28,7 @@ function App() {
 			);
 
 			if (!itemsResponse.ok) {
-				console.error("Error fetching items from API (getItems)");
+				console.error("Failed fetching items data (getItems)");
 				return;
 			}
 

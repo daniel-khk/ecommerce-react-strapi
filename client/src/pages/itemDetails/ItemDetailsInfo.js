@@ -14,12 +14,10 @@ const ItemDetailsInfo = ({ item }) => {
 
 	// Toggle expandable text information.
 	const toggle = (i) => {
-		if (selected === i) {
-			return setSelected(null);
-		}
-		setSelected(i);
+		setSelected(selected === i ? null : i);
 	}
 
+	// Updates item options on item change
 	useEffect(() => {
 		setOption(item?.attributes?.option);
 		setSelectedOption("placeholder");
@@ -45,30 +43,22 @@ const ItemDetailsInfo = ({ item }) => {
 					: dispatch(addItem([item, selectedOption])) && dispatch(openModal());
 			}}>Add To Cart</button>
 			<span className={styles.borderLine}></span>
-			<div className={styles.expandableText}>
-				<div className={styles.title} onClick={() => toggle(0)}>
-					<h3>Description</h3><span>{selected === 0 ? "-" : "+"}</span>
+			{/* Loop for information content */}
+			{['Description', 'Details', 'Shipping'].map((section, index) => (
+				<div key={section} className={styles.expandableText}>
+					<div className={styles.title} onClick={() => toggle(index)}>
+						<h3>{section}</h3><span>{selected === index ? "-" : "+"}</span>
+					</div>
+					{/* To create bullet points */}
+					<div className={selected === index ? `${styles.content} ${styles.show}` : styles.content}>
+						{index === 1 ? (
+							<ReactMarkdown className="markdown">{item?.attributes?.details}</ReactMarkdown>
+						) : (
+							<p>{item?.attributes?.[section.toLowerCase()]}</p>
+						)}
+					</div>
 				</div>
-				<div className={selected === 0 ? `${styles.content} ${styles.show}` : `${styles.content}`}>
-					<p>{item?.attributes?.description}</p>
-				</div>
-			</div>
-			<div className={styles.expandableText}>
-				<div className={styles.title} onClick={() => toggle(1)}>
-					<h3>Details</h3><span>{selected === 1 ? "-" : "+"}</span>
-				</div>
-				<div className={selected === 1 ? `${styles.content} ${styles.show}` : `${styles.content}`}>
-					<ReactMarkdown className="markdown">{item?.attributes?.details}</ReactMarkdown>
-				</div>
-			</div>
-			<div className={styles.expandableText}>
-				<div className={styles.title} onClick={() => toggle(2)}>
-					<h3>Shipping</h3><span>{selected === 2 ? "-" : "+"}</span>
-				</div>
-				<div className={selected === 2 ? `${styles.content} ${styles.show}` : `${styles.content}`}>
-					<p>{item?.attributes?.shipping}</p>
-				</div>
-			</div>
+			))}
 		</div>
 	);
 }

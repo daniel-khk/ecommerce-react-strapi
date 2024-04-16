@@ -5,14 +5,17 @@ import NavbarMobile from './NavbarMobile';
 
 
 const Navbar = () => {
-	// Changes navbarTop-container css border-bottom to transparent only in the Home page "/".
+	// Hook to get the current pathname
 	const { pathname } = useLocation();
+
+	// Changes navbarTop-container css border-bottom to transparent only in the Home page "/".
 	const navbarStyleChange = {
 		borderBottom: {
 			["/"]: "1px solid transparent",
 		}
 	}
 
+	// Render the Navbar component and include both web and mobile versions
 	return (
 		<header className={styles.navbarContainer} style={{ borderBottom: navbarStyleChange.borderBottom[pathname] }}>
 			<NavbarWeb />

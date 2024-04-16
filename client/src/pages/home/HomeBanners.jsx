@@ -4,46 +4,39 @@ import { Link } from 'react-router-dom';
 
 
 const HomeBanners = () => {
+	// Using Redux to select items array from the store
 	const items = useSelector((state) => state.items.items);
-	const firstBanner = items.find((item) => item.attributes.productId === "82jb018");
-	const secondBanner = items.find((item) => item.attributes.productId === "82jb012");
-	const thirdBanner = items.find((item) => item.attributes.productId === "82jb004");
+
+	// Find and define specific products to display as banners
+	const banners = [
+		{ productId: "82jb018", category: "tops", label: "Tops" },
+		{ productId: "82jb012", category: "bottoms", label: "Bottoms" },
+		{ productId: "82jb004", category: "accessories", label: "Accessories" },
+	];
+
+	// Function to get the image URL
+	const getImageUrl = (productId) => {
+		const item = items.find((item) => item.attributes.productId === productId);
+		return item?.attributes?.detailImage?.data[0]?.attributes?.url || '';
+	};
 
 	return (
 		<section className={styles.homeBanners}>
-			<Link to="/products/tops">
-				<div className={styles.bannerBox}>
-					<div className={styles.textBg}>
-						<h3 className={styles.bannerText}>Tops</h3>
+			{/* Loop for banners */}
+			{banners.map((banner, index) => (
+				<Link to={`/products/${banner.category}`} key={index}>
+					<div className={styles.bannerBox}>
+						<div className={styles.textBg}>
+							<h3 className={styles.bannerText}>{banner.label}</h3>
+						</div>
+						<img
+							className={styles.bannerImg}
+							alt={`${banner.label} Banner`}
+							src={getImageUrl(banner.productId)}
+						/>
 					</div>
-					<img className={styles.bannerImg} alt="Banner 1" src=
-						// {`${process.env.REACT_APP_SERVER_URL}${firstBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`}
-						{`${firstBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} loading='lazy'
-					/>
-				</div>
-			</Link>
-			<Link to="/products/bottoms">
-				<div className={styles.bannerBox}>
-					<div className={styles.textBg}>
-						<h3 className={styles.bannerText}>Bottoms</h3>
-					</div>
-					<img className={styles.bannerImg} alt="Banner 2" src=
-						// {`${process.env.REACT_APP_SERVER_URL}${secondBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} 
-						{`${secondBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} loading='lazy'
-					/>
-				</div>
-			</Link>
-			<Link to="/products/accessories">
-				<div className={styles.bannerBox}>
-					<div className={styles.textBg}>
-						<h3 className={styles.bannerText}>Accessories</h3>
-					</div>
-					<img className={styles.bannerImg} alt="Banner 3" src=
-						// {`${process.env.REACT_APP_SERVER_URL}${thirdBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} 
-						{`${thirdBanner?.attributes?.detailImage?.data[0]?.attributes?.url}`} loading='lazy'
-					/>
-				</div>
-			</Link>
+				</Link>
+			))}
 		</section>
 	);
 }

@@ -38,13 +38,16 @@ const NavbarMobile = () => {
 	return (
 		<nav className={styles.navbarMobile}>
 			<div className={styles.navbarMobileMenu}>
+				{/* Left area of the navbar mobile layout */}
 				<div className={styles.navbarLeftArea}>
 					{/* Main logo linked to the home page */}
 					<div className={styles.navLogo}>
 						<a href="/"><img className={styles.svgLogo} src={MainLogo} alt="Main Logo" /></a>
 					</div>
 				</div>
+				{/* Right area of the navbar mobile layout */}
 				<div className={styles.navbarRightArea}>
+					{/* Icon for Cart */}
 					<div className={styles.cartIcon}>
 						<Link to="/cart">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#222222" className="w-6 h-6">

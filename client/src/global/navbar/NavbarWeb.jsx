@@ -9,10 +9,13 @@ const NavbarWeb = () => {
 
 	return (
 		<nav className={styles.navbarWeb}>
+			{/* Left area for navbar web layout */}
 			<div className={styles.navbarLeftArea}>
+				{/* Main logo icon */}
 				<div className={styles.navLogo}>
 					<a href="/"><img className={styles.svgLogo} src={MainLogo} alt="Main Logo" /></a>
 				</div>
+				{/* Navbar menus */}
 				<div className={styles.navbarMenu}>
 					<ul>
 						<li className={`${location.pathname === '/products/tops' ? styles.active : ''}`}>
@@ -30,7 +33,9 @@ const NavbarWeb = () => {
 					</ul>
 				</div>
 			</div>
+			{/* Right area for navbar web layout */}
 			<div className={styles.navbarRightArea}>
+				{/* Icon for Cart */}
 				<div className={styles.navbarMenu}>
 					<ul>
 						<li className={`${styles.cartMenu} ${location.pathname === '/cart' ? styles.cartActive : ''}`}>

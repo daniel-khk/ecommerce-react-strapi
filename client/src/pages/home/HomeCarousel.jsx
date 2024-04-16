@@ -23,7 +23,7 @@ const HomeCarousel = () => {
 			);
 
 			if (!carouselResponse.ok) {
-				console.error("Error fetching carousel from API (getCarousel)");
+				console.error("Failed to fetch carousel data (getCarousel)");
 				return;
 			}
 
@@ -103,7 +103,7 @@ const HomeCarousel = () => {
 						<SwiperSlide key={i}>
 							<img className='homeCarouselImage' src=
 								// {`${process.env.REACT_APP_SERVER_URL}${carousel?.attributes?.image?.data[i]?.attributes?.url}`} 
-								{`${carousel?.attributes?.image?.data[i]?.attributes?.url}`} alt={`Carousel ${i}`} loading='lazy' />
+								{`${carousel?.attributes?.image?.data[i]?.attributes?.url}`} alt={`Carousel ${i}`} />
 						</SwiperSlide>
 					)
 				})}
